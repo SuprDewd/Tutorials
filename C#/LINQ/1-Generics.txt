@@ -1,0 +1,138 @@
+Þetta er fyrsti hlutinn af 6 um LINQ.
+Þessi grein er ætluð C#, en hægt er að nota LINQ í öllum .NET tungumálunum.
+
+LINQ er búið til úr nokkrum undirstöðu-tæknum, og ætla ég að byrja á því
+að kynnar þær fyrir ykkur áður en ég sýni ykkur LINQ og hvernig það virkar.
+
+Greinin er þess vegna skipt upp í 6 hluta:
+
+- [i]Generics[/i]
+- [i]Delegates / Lambdas[/i]
+- [i]Extension methods[/i]
+- [i]IEnumerable<T>[/i]
+- [i]LINQ to Objects[/i]
+- [i]LINQ to Everything og PLINQ[/i]
+
+
+
+[b]1. Generics[/b]
+
+Byrjum á því að taka sem dæmi innbyggða klasann ArrayList.
+Hann getur geymt fylki af objectum sem stækkar eftir þörfum.
+En segjum svo að ég geri eftirfarandi:
+
+[code]
+ArrayList talnaFylki = new ArrayList();
+
+talnaFylki.Add(10);
+talnaFylki.Add(20);
+talnaFylki.Add(30);
+
+talnaFylki.Add("Strengur!"); // Hér set ég inn streng í fylki sem var ætlað tölum
+[/code]
+
+Þetta er fullkomlega löglegt.
+Prufum svo að gera eitthverja aðgerð á tölurnar í fylkinu mínu, til dæmis:
+
+[code]
+int summa = 0;
+
+for (int i = 0; i < talnaFylki.Length; i++)
+{
+	summa += (int)talnaFylki[i];
+}
+[/code]
+
+Þarna mun C# koma með runtime error (villan kæmi ekki upp fyrr en eftir að forritið er byrjað að keyra).
+Ég castaði string yfir á int, sem er ekki löglegt.
+Þetta gerist vegna þess að ArrayList er ekki type-safe.
+ArrayList er ekki type-safe af því að hann geymir hlutina sem array of objects,
+en ekki array af T, þar sem T væri týpan af hlutunum sem ætti að geyma.
+
+Microsoft kom með lausn á þessu vandamáli með því að bæta generics við C# (.NET).
+Núna er semsagt hægt að nota generic klasann List<T>, og breytt T í týpuna sem fylkið á að geyma.
+Sami kóði og áðan, en núna með List<T>:
+
+[code]
+List<int> talnaFylki = new List<int>();
+
+talnaFylki.Add(10);
+talnaFylki.Add(20);
+talnaFylki.Add(30);
+
+talnaFylki.Add("Strengur!"); // Hér mun koma compile error
+[/code]
+
+Núna mun C# koma strax með villu, og ekki leyfa okkur að keyra forritið.
+Þá sjáum við að við höfum óvart sett streng inn í fylki sem var ætlað tölum, og getum fjarlægt línuna.
+Þetta gerir List<T> type-safe.
+
+Við getum líka búið til okkar eigin generic klasa.
+Til dæmis klasi sem skrifar út hluti af týpunni T.
+
+[code]
+public class UtSkrifari<T>
+{
+	public void SkrifaUt(T hlutur)
+	{
+		Console.WriteLine(hlutur);
+	}
+}
+[/code]
+
+Og svo notum við hann:
+
+[code]
+UtSkrifari<DateTime> timaSkrifari = new UtSkrifari<DateTime>();
+timaSkrifari.SkrifaUt(DateTime.Now);
+timaSkrifari.SkrifaUt("Strengur"); // Compile error
+
+UtSkrifari<int> toluSkrifari = new UtSkrifari<int>();
+toluSkrifari.SkrifaUt(1000);
+toluSkrifari.SkrufaUt("Blaaa"); // Compile error
+[/code]
+
+Method geta líka verið generic.
+Til dæmis getum við breytt klasanum okkar fyrir ofan
+og fært <T> niður úr klasanum beint í methodið.
+
+[code]
+public class UtSkrifari
+{
+	public void SkrifaUt<T>(T hlutur)
+	{
+		Console.WriteLine(hlutur);
+	}
+}
+[/code]
+
+Og þá getum við búið til einn útskrifara sem getur skrifað út allar týpur.
+
+[code]
+UtSkrifari skrifari = new UtSkrifari();
+
+skrifari.SkrifaUt<DateTime>(DateTime.Now);
+skrifari.SkrifaUt<DateTime>("Strengur"); // Compile error
+
+skrifari.SkrifaUt<int>(1000);
+skrifari.SkrufaUt<int>("Blaaa"); // Compile error
+
+skrifari.SkrifaUt<string>("Meiri strengur"); // Þetta virkar
+[/code]
+
+Klasar og method geta meira að segja haft margar týpur (Skoðið t.d. [url=http://msdn.microsoft.com/en-us/library/xfhwa508.aspx]Dictionary<TKey, TValue>[/url]).
+
+[code]
+	public void SkrifaUtTvoHluti<T1, T2>(T1 hlutur1, T2 hlutur2)
+	{
+		Console.WriteLine(hlutur1);
+		Console.WriteLine(hlutur2);
+	}
+[/code]
+
+Þetta var smá kynning á Generics,
+en þetta er einn hluti af því sem gerir LINQ að því sem það er.
+Í næsta hluta mun ég sýna ykkur Delegates og Lambdas, og auðvitað er hægt að nota generics þar líka.
+
+Ef þið viljið læra meira um Generics, og læra að nota where skipunina,
+þá mæli ég með að lesa [url=http://msdn.microsoft.com/en-us/library/ms379564(VS.80).aspx]þessa grein[/url] á msdn.microsoft.com eða googlea "C# Generics".
