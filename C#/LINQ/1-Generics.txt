@@ -123,11 +123,26 @@ skrifari.SkrifaUt<string>("Meiri strengur"); // Þetta virkar
 Klasar og method geta meira að segja haft margar týpur (Skoðið t.d. [url=http://msdn.microsoft.com/en-us/library/xfhwa508.aspx]Dictionary<TKey, TValue>[/url]).
 
 [code]
-	public void SkrifaUtTvoHluti<T1, T2>(T1 hlutur1, T2 hlutur2)
-	{
-		Console.WriteLine(hlutur1);
-		Console.WriteLine(hlutur2);
-	}
+public void SkrifaUtTvoHluti<T1, T2>(T1 hlutur1, T2 hlutur2)
+{
+	Console.WriteLine(hlutur1);
+	Console.WriteLine(hlutur2);
+}
+[/code]
+
+eða til dæmis:
+
+[code]
+public static Ut Breyta<Inn, Ut>(Inn hlutur)
+{
+    return (Ut)Convert.ChangeType(hlutur, typeof(Ut));
+}
+[/code]
+
+og svo:
+
+[code]
+int tala = Breyta<string, int>("1234");
 [/code]
 
 Þetta var smá kynning á Generics,
