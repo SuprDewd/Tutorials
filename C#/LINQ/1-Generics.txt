@@ -1,16 +1,16 @@
-[b]0. Hvağ er LINQ?[/b]
+ï»¿[b]0. HvaÃ° er LINQ?[/b]
 
-LINQ stendur fyrir Language Integrated Query og er boriğ fram "Línk".
+LINQ stendur fyrir Language Integrated Query og er boriÃ° fram "LÃ­nk".
 
-Yfirleitt şegar mağur er ağ senda fyrirspurnir á gagnagrunna, şá er mağur meğ streng meğ SQL fyrirspurn sem mağur sendir svo á grunninn.
-Şağ er alls ekki gott, şví ağ fyrirspurnin er ekki villu-checkuğ şegar forritiğ er compileağ.
-Ekki er heldur neitt Intellisense, eğa eitthvağ şví líkt, şegar şú ert ağ skrifa fyrirspurnina.
-LINQ leysir şessi vandamál. En ekki nóg meğ şağ ağ LINQ leyfi şér ağ sækja gögn í gagnagrunna,
-heldur getur LINQ líka queryağ í XML skrár, array, lista og ağrar in-memory collections, alveg eins og şú værir ağ querya gagnagrunn.
-Ekki nóg meğ şağ, heldur getur şú látiğ LINQ, t.d. gert LINQ kleift ağ querya úr sérsmíğuğum klösum, og bætt viğ allskyns query hegğun.
-En til şess ağ skilja vel hvernig LINQ virkar, og hvernig şessi ótrúlega kraftmikla, en einfalda, tækni er byggğ upp, verğum viğ
-fyrst ağ læra um hlutina sem LINQ er sett saman úr.
-Af şessum ástæğum ætla ég ağ skipta şessari grein upp í sex hluta.
+Yfirleitt Ã¾egar maÃ°ur er aÃ° senda fyrirspurnir Ã¡ gagnagrunna, Ã¾Ã¡ er maÃ°ur meÃ° streng meÃ° SQL fyrirspurn sem maÃ°ur sendir svo Ã¡ grunninn.
+ÃaÃ° er alls ekki gott, Ã¾vÃ­ aÃ° fyrirspurnin er ekki villu-checkuÃ° Ã¾egar forritiÃ° er compileaÃ°.
+Ekki er heldur neitt Intellisense, eÃ°a eitthvaÃ° Ã¾vÃ­ lÃ­kt, Ã¾egar Ã¾Ãº ert aÃ° skrifa fyrirspurnina.
+LINQ leysir Ã¾essi vandamÃ¡l. En ekki nÃ³g meÃ° Ã¾aÃ° aÃ° LINQ leyfi Ã¾Ã©r aÃ° sÃ¦kja gÃ¶gn Ã­ gagnagrunna,
+heldur getur LINQ lÃ­ka queryaÃ° Ã­ XML skrÃ¡r, array, lista og aÃ°rar in-memory collections, alveg eins og Ã¾Ãº vÃ¦rir aÃ° querya gagnagrunn.
+Ekki nÃ³g meÃ° Ã¾aÃ°, heldur getur Ã¾Ãº lÃ¡tiÃ° LINQ, t.d. gert LINQ kleift aÃ° querya Ãºr sÃ©rsmÃ­Ã°uÃ°um klÃ¶sum, og bÃ¦tt viÃ° allskyns query hegÃ°un.
+En til Ã¾ess aÃ° skilja vel hvernig LINQ virkar, og hvernig Ã¾essi Ã³trÃºlega kraftmikla, en einfalda, tÃ¦kni er byggÃ° upp, verÃ°um viÃ°
+fyrst aÃ° lÃ¦ra um hlutina sem LINQ er sett saman Ãºr.
+Af Ã¾essum Ã¡stÃ¦Ã°um Ã¦tla Ã©g aÃ° skipta Ã¾essari grein upp Ã­ sex hluta.
 
 - [i]Generics[/i]
 - [i]Delegates / Lambdas[/i]
@@ -19,14 +19,14 @@ Af şessum ástæğum ætla ég ağ skipta şessari grein upp í sex hluta.
 - [i]LINQ to Objects[/i]
 - [i]LINQ to Everything og PLINQ[/i]
 
-Viğ byrjum á generics, en athugiğ, şessi grein er ætluğ C#, en hægt er ağ nota LINQ í öllum .NET tungumálunum.
+ViÃ° byrjum Ã¡ generics, en athugiÃ°, Ã¾essi grein er Ã¦tluÃ° C#, en hÃ¦gt er aÃ° nota LINQ Ã­ Ã¶llum .NET tungumÃ¡lunum.
 
 
 [b]1. Generics[/b]
 
-Byrjum á şví ağ taka sem dæmi innbyggğa klasann ArrayList.
-Hann getur geymt fylki af objectum sem stækkar eftir şörfum.
-En segjum svo ağ ég geri eftirfarandi:
+Byrjum Ã¡ Ã¾vÃ­ aÃ° taka sem dÃ¦mi innbyggÃ°a klasann ArrayList.
+Hann getur geymt fylki af objectum sem stÃ¦kkar eftir Ã¾Ã¶rfum.
+En segjum svo aÃ° Ã©g geri eftirfarandi:
 
 [code]
 ArrayList talnaFylki = new ArrayList();
@@ -35,11 +35,11 @@ talnaFylki.Add(10);
 talnaFylki.Add(20);
 talnaFylki.Add(30);
 
-talnaFylki.Add("Strengur!"); // Hér set ég inn streng í fylki sem var ætlağ tölum
+talnaFylki.Add("Strengur!"); // HÃ©r set Ã©g inn streng Ã­ fylki sem var Ã¦tlaÃ° tÃ¶lum
 [/code]
 
-Şetta er fullkomlega löglegt.
-Prufum svo ağ gera eitthverja ağgerğ á tölurnar í fylkinu mínu, til dæmis:
+Ãetta er fullkomlega lÃ¶glegt.
+Prufum svo aÃ° gera eitthverja aÃ°gerÃ° Ã¡ tÃ¶lurnar Ã­ fylkinu mÃ­nu, til dÃ¦mis:
 
 [code]
 int summa = 0;
@@ -50,15 +50,15 @@ for (int i = 0; i < talnaFylki.Length; i++)
 }
 [/code]
 
-Şarna mun C# koma meğ runtime error (villan kæmi ekki upp fyrr en eftir ağ forritiğ er byrjağ ağ keyra).
-Ég castaği string yfir á int, sem er ekki löglegt.
-Şetta gerist vegna şess ağ ArrayList er ekki type-safe.
-ArrayList er ekki type-safe af şví ağ hann geymir hlutina sem array of objects,
-en ekki array af T, şar sem T væri tıpan af hlutunum sem ætti ağ geyma.
+Ãarna mun C# koma meÃ° runtime error (villan kÃ¦mi ekki upp fyrr en eftir aÃ° forritiÃ° er byrjaÃ° aÃ° keyra).
+Ã‰g castaÃ°i string yfir Ã¡ int, sem er ekki lÃ¶glegt.
+Ãetta gerist vegna Ã¾ess aÃ° ArrayList er ekki type-safe.
+ArrayList er ekki type-safe af Ã¾vÃ­ aÃ° hann geymir hlutina sem array of objects,
+en ekki array af T, Ã¾ar sem T vÃ¦ri tÃ½pan af hlutunum sem Ã¦tti aÃ° geyma.
 
-Microsoft kom meğ lausn á şessu vandamáli meğ şví ağ bæta generics viğ C# (.NET).
-Núna er semsagt hægt ağ nota generic klasann List<T>, og breytt T í tıpuna sem fylkiğ á ağ geyma.
-Sami kóği og áğan, en núna meğ List<T>:
+Microsoft kom meÃ° lausn Ã¡ Ã¾essu vandamÃ¡li meÃ° Ã¾vÃ­ aÃ° bÃ¦ta generics viÃ° C# (.NET).
+NÃºna er semsagt hÃ¦gt aÃ° nota generic klasann List<T>, og breytt T Ã­ tÃ½puna sem fylkiÃ° Ã¡ aÃ° geyma.
+Sami kÃ³Ã°i og Ã¡Ã°an, en nÃºna meÃ° List<T>:
 
 [code]
 List<int> talnaFylki = new List<int>();
@@ -67,15 +67,15 @@ talnaFylki.Add(10);
 talnaFylki.Add(20);
 talnaFylki.Add(30);
 
-talnaFylki.Add("Strengur!"); // Hér mun koma compile error
+talnaFylki.Add("Strengur!"); // HÃ©r mun koma compile error
 [/code]
 
-Núna mun C# koma strax meğ villu, og ekki leyfa okkur ağ keyra forritiğ.
-Şá sjáum viğ ağ viğ höfum óvart sett streng inn í fylki sem var ætlağ tölum, og getum fjarlægt línuna.
-Şetta gerir List<T> type-safe.
+NÃºna mun C# koma strax meÃ° villu, og ekki leyfa okkur aÃ° keyra forritiÃ°.
+ÃÃ¡ sjÃ¡um viÃ° aÃ° viÃ° hÃ¶fum Ã³vart sett streng inn Ã­ fylki sem var Ã¦tlaÃ° tÃ¶lum, og getum fjarlÃ¦gt lÃ­nuna.
+Ãetta gerir List<T> type-safe.
 
-Viğ getum líka búiğ til okkar eigin generic klasa.
-Til dæmis klasi sem skrifar út hluti af tıpunni T.
+ViÃ° getum lÃ­ka bÃºiÃ° til okkar eigin generic klasa.
+Til dÃ¦mis klasi sem skrifar Ãºt hluti af tÃ½punni T.
 
 [code]
 public class UtSkrifari<T>
@@ -87,7 +87,7 @@ public class UtSkrifari<T>
 }
 [/code]
 
-Og svo notum viğ hann:
+Og svo notum viÃ° hann:
 
 [code]
 UtSkrifari<DateTime> timaSkrifari = new UtSkrifari<DateTime>();
@@ -99,9 +99,9 @@ toluSkrifari.SkrifaUt(1000);
 toluSkrifari.SkrufaUt("Blaaa"); // Compile error
 [/code]
 
-Method geta líka veriğ generic.
-Til dæmis getum viğ breytt klasanum okkar fyrir ofan
-og fært <T> niğur úr klasanum beint í methodiğ.
+Method geta lÃ­ka veriÃ° generic.
+Til dÃ¦mis getum viÃ° breytt klasanum okkar fyrir ofan
+og fÃ¦rt <T> niÃ°ur Ãºr klasanum beint Ã­ methodiÃ°.
 
 [code]
 public class UtSkrifari
@@ -113,7 +113,7 @@ public class UtSkrifari
 }
 [/code]
 
-Og şá getum viğ búiğ til einn útskrifara sem getur skrifağ út allar tıpur.
+Og Ã¾Ã¡ getum viÃ° bÃºiÃ° til einn Ãºtskrifara sem getur skrifaÃ° Ãºt allar tÃ½pur.
 
 [code]
 UtSkrifari skrifari = new UtSkrifari();
@@ -124,10 +124,10 @@ skrifari.SkrifaUt<DateTime>("Strengur"); // Compile error
 skrifari.SkrifaUt<int>(1000);
 skrifari.SkrufaUt<int>("Blaaa"); // Compile error
 
-skrifari.SkrifaUt<string>("Meiri strengur"); // Şetta virkar
+skrifari.SkrifaUt<string>("Meiri strengur"); // Ãetta virkar
 [/code]
 
-Klasar og method geta meira ağ segja haft margar tıpur (Skoğiğ t.d. [url=http://msdn.microsoft.com/en-us/library/xfhwa508.aspx]Dictionary<TKey, TValue>[/url]).
+Klasar og method geta meira aÃ° segja haft margar tÃ½pur (SkoÃ°iÃ° t.d. [url=http://msdn.microsoft.com/en-us/library/xfhwa508.aspx]Dictionary<TKey, TValue>[/url]).
 
 [code]
 public void SkrifaUtTvoHluti<T1, T2>(T1 hlutur1, T2 hlutur2)
@@ -137,7 +137,7 @@ public void SkrifaUtTvoHluti<T1, T2>(T1 hlutur1, T2 hlutur2)
 }
 [/code]
 
-eğa til dæmis:
+eÃ°a til dÃ¦mis:
 
 [code]
 public static Ut Breyta<Inn, Ut>(Inn hlutur)
@@ -152,9 +152,9 @@ og svo:
 int tala = Breyta<string, int>("1234");
 [/code]
 
-Şetta var smá kynning á Generics,
-en şetta er einn hluti af şví sem gerir LINQ ağ şví sem şağ er.
-Í næsta hluta mun ég sına ykkur Delegates og Lambdas, og auğvitağ er hægt ağ nota generics şar líka.
+Ãetta var smÃ¡ kynning Ã¡ Generics,
+en Ã¾etta er einn hluti af Ã¾vÃ­ sem gerir LINQ aÃ° Ã¾vÃ­ sem Ã¾aÃ° er.
+Ã nÃ¦sta hluta mun Ã©g sÃ½na ykkur Delegates og Lambdas, og auÃ°vitaÃ° er hÃ¦gt aÃ° nota generics Ã¾ar lÃ­ka.
 
-Ef şiğ viljiğ læra meira um Generics, og læra ağ nota where skipunina,
-şá mæli ég meğ ağ lesa [url=http://msdn.microsoft.com/en-us/library/ms379564(VS.80).aspx]şessa grein[/url] á msdn.microsoft.com eğa googlea "C# Generics".
+Ef Ã¾iÃ° viljiÃ° lÃ¦ra meira um Generics, og lÃ¦ra aÃ° nota where skipunina,
+Ã¾Ã¡ mÃ¦li Ã©g meÃ° aÃ° lesa [url=http://msdn.microsoft.com/en-us/library/ms379564(VS.80).aspx]Ã¾essa grein[/url] Ã¡ msdn.microsoft.com eÃ°a googlea "C# Generics".
