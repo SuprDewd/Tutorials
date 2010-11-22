@@ -1,10 +1,15 @@
-Þetta er fyrsti hlutinn af 6 um LINQ.
-Þessi grein er ætluð C#, en hægt er að nota LINQ í öllum .NET tungumálunum.
+[b]0. Hvað er LINQ?[/b]
 
-LINQ er búið til úr nokkrum undirstöðu-tæknum, og ætla ég að byrja á því
-að kynnar þær fyrir ykkur áður en ég sýni ykkur LINQ og hvernig það virkar.
+LINQ stendur fyrir Language Integrated Query og er borið fram "Línk".
 
-Greinin er þess vegna skipt upp í 6 hluta:
+Yfirleitt þegar maður er að senda fyrirspurnir á gagnagrunna, þá er maður með streng með SQL fyrirspurn sem maður sendir svo á grunninn.
+Það er alls ekki gott, því að fyrirspurnin er ekki villu-checkuð þegar forritið er compileað.
+Ekki er heldur neitt Intellisense, eða eitthvað því líkt, þegar þú ert að skrifa fyrirspurnina.
+LINQ leysir þessi vandamál. En ekki nóg með það að LINQ leyfi þér að sækja gögn í gagnagrunna,
+heldur getur LINQ líka queryað í XML skrár, array, lista og aðrar in-memory collections, alveg eins og þú værir að querya gagnagrunn.
+En til þess að skilja vel hvernig LINQ virkar, og hvernig þessi ótrúlega kraftmikla, en einfalda, tækni er byggð upp, verðum við
+fyrst að læra um hlutina sem LINQ er sett saman úr.
+Af þessum ástæðum ætla ég að skipta þessari grein upp í sex hluta.
 
 - [i]Generics[/i]
 - [i]Delegates / Lambdas[/i]
@@ -13,6 +18,7 @@ Greinin er þess vegna skipt upp í 6 hluta:
 - [i]LINQ to Objects[/i]
 - [i]LINQ to Everything og PLINQ[/i]
 
+Við byrjum á generics, en athugið, þessi grein er ætluð C#, en hægt er að nota LINQ í öllum .NET tungumálunum.
 
 
 [b]1. Generics[/b]
