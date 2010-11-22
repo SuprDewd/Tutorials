@@ -7,6 +7,7 @@ Yfirleitt þegar maður er að senda fyrirspurnir á gagnagrunna, þá er maður með st
 Ekki er heldur neitt Intellisense, eða eitthvað því líkt, þegar þú ert að skrifa fyrirspurnina.
 LINQ leysir þessi vandamál. En ekki nóg með það að LINQ leyfi þér að sækja gögn í gagnagrunna,
 heldur getur LINQ líka queryað í XML skrár, array, lista og aðrar in-memory collections, alveg eins og þú værir að querya gagnagrunn.
+Ekki nóg með það, heldur getur þú látið LINQ, t.d. gert LINQ kleift að querya úr sérsmíðuðum klösum, og bætt við allskyns query hegðun.
 En til þess að skilja vel hvernig LINQ virkar, og hvernig þessi ótrúlega kraftmikla, en einfalda, tækni er byggð upp, verðum við
 fyrst að læra um hlutina sem LINQ er sett saman úr.
 Af þessum ástæðum ætla ég að skipta þessari grein upp í sex hluta.
