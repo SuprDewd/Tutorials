@@ -14,7 +14,7 @@ void Prufa()
 	PrufuDelegate prufa2 = PrufuMethod; // Getum líka sleppt að skrifa new PrufuDelegate().
 	
 	string a = prufa(2, "kanínur"); // Svo köllum við í breyturnar, alveg eins og þær væru methodið sjálft.
-	strign b = prufa2(8, "kettir");
+	string b = prufa2(8, "kettir");
 }
 
 string PrufuMethod(int breytaA, string breytaB)
