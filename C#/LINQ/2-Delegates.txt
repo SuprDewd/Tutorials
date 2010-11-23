@@ -1,0 +1,119 @@
+﻿[b]2. Delegates[/b]
+
+Delegate er einfaldlega bara breyta sem bendir á method.
+Þú getur kallað í breytuna, og þá verður kallað í methodið sem bent var á.
+Til þess að búa til delegate, verðum við fyrst að skilgreina týpuna af delegateinu.
+Týpan segir til um hvernig færibreytur methodið á að taka inn og hverju það skilar.
+
+[code]
+delegate string PrufuDelegate(int a, string b); // Byrjum á því að búa til delegate týpu
+
+void Prufa()
+{
+	PrufuDelegate prufa = new PrufuDelegate(PrufuMethod); // Búum til nýtt delegate.
+	PrufuDelegate prufa2 = PrufuMethod; // Getum líka sleppt að skrifa new PrufuDelegate().
+	
+	string a = prufa(2, "kanínur"); // Svo köllum við í breyturnar, alveg eins og þær væru methodið sjálft.
+	strign b = prufa2(8, "kettir");
+}
+
+string PrufuMethod(int breytaA, string breytaB)
+{
+	return breytaA + ". " + breytaB;
+}
+[/code]
+
+Delegate týpan getur verið notuð eins og venjulega klasa-týpa.
+Við getum til dæmis búið til method sem taka inn delegate sem færibreytu:
+
+[code]
+void NotaDelegate(PrufuDelegate eitthvadDelegate)
+{
+	string texti = eitthvadDelegate(5, "Svartir Bílar");
+	Console.WriteLine(texti);
+}
+[/code]
+
+Svo getum við líka hent generics inn í þetta:
+
+[code]
+delegate string SetjaSaman<T1, T2>(T1 breyta1, T2 breyta2);
+
+void PrufaDelegate()
+{
+	SetjaSaman<int, string> prufuDelegate1 = new SetjaSaman<int, string>(PrufuMethod); // Virkar
+	SetjaSaman<string, string> prufuDelegate2 = new SetjaSaman<string, string>(PrufuMethod); // Villa
+}
+[/code]
+
+Seinna delegateið mun koma með villu, af því að C# sér að PrufuMethod tekur inn eitt int og einn streng, en ekki tvo strengi.
+.NET frameworkinn kemur líka með tilbúnu delegate týpunum Func og Action.
+Action er delegate sem skilar engu, og tekur inn allt að 16 færibreytur af mismunandi týpum.
+Func er delegate sem skilar týpunni TOut, og tekur inn allt að 16 færibreytur af mismunandi týpum.
+Það eru mörg overload af þeim báðum, en ég get sýnt ykkur hvernig þau eru búin til, til þess að þið skiljið mig betur.
+
+[code]
+delegate void Action();
+delegate void Action<T1>(T1 breyta1);
+delegate void Action<T1, T2>(T1 breyta1, T2 breyta2);
+// og svo framvegis.
+
+delegate TOut Func<TOut>();
+delegate TOut Func<T1, TOut>(T1 breyta1);
+delegate TOut Func<T1, T2, TOut>(T1 breyta1, T2 breyta2);
+// og svo framvegis.
+[/code]
+
+Þessi innbyggðu delegate er hægt að nota þegar maður er latur:
+
+[code]
+Func<int, string, int> funcPrufa = new Func<int, string, int>(PrufuMethod); // Virkar
+Action<int, string> actionPrufa = new Action<int, string>(PrufuMethod); // Villa
+[/code]
+
+Hægt er að lesa meira um delegates [url=http://msdn.microsoft.com/en-us/library/ms173172(v=VS.80).aspx]hérna[/url].
+
+
+
+[b]Anonymous Methods[/b]
+
+Í staðinn fyrir að búa til heilt method bara til þess að láta delegate fá, getum við búið til anonymous method.
+Anonymous method er venjulegt method, sem er búið til in-line, eða í statementi.
+
+[code]
+Action action1 = delegate() { /* Hér kemur kóði */ };
+Action<int> action2 = delegate(int i) { /* Hér kemur kóði */ };
+Func<int, int, int> LeggjaSaman = delegate(int a, int b) { return a + b; };
+
+LeggjaSaman(2, 10); // Skilar 12
+[/code]
+
+Hægt er að lesa meira um anonymous methods [url=http://msdn.microsoft.com/en-us/library/0yw3tz5k.aspx]hérna[/url].
+
+
+
+[b]Lambdas[/b]
+
+Lambda er næstum það sama og anonymous method.
+Eini munurinn er syntaxið.
+
+[code]
+Func<int, int, int> LeggjaSaman = (int a, int b) => { return a + b; };
+
+LeggjaSaman(5, 5); // Skilar 10
+[/code]
+
+Svo er í lagi að sleppa týpunum á færibreytunum:
+[code]Func<int, int, int> LeggjaSaman = (a, b) => { return a + b; };[/code]
+Og ef að delegateið inniheldur aðeins eina skipun, hvort sem þessi skipun er return skipun eða önnur skipun, þá má sleppa krullusvigunum:
+[code]Func<int, int, int> LeggjaSaman = (a, b) => a + b;
+Action<int> SkrifaUtTolu = (tala) => Console.WriteLine(tala);[/code]
+Ef að delegateið tekur bara inn eina færibreytu, þá má sleppa svigunum utan um breytunöfnin:
+[code]Action<int> SkrifaUtTolu = tala => Console.WriteLine(tala);[/code]
+En ef delegateið tekur ekki inn neina breytu, verðum við að setja tvo sviga með engu inní:
+[code]Action SkrifaEitthvadUt = () => Console.WriteLine("Eitthvað");[/code]
+
+Hægt er að lesa meira um lambdas [url=http://msdn.microsoft.com/en-us/library/bb397687.aspx]hérna[/url].
+
+Þetta ætti að vera nóg um delegates, anonymous methods og lambdas.
+Þetta er mjög mikið notað í LINQ eins og þið munuð sjá seinna.
