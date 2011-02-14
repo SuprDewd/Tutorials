@@ -1,0 +1,35 @@
+Ég er að spá í að byrja með smá syrpu hérna á hugi.is/forritun.
+Syrpan er ætluð forriturum sem *elska* að forrita og langar að læra meira.
+Þetta er ekki ætlað byrjendum en aðeins lengra komnir ættu að geta tekið þátt.
+
+Ég ætla semsagt (vikulega) að koma með eitt forritunardæmi (af öllum stærðum og gerðum), og koma með hugtök sem geta hjálpað til við að leysa dæmið. Svo getið þið farið á google (eða annað) og lært um þessi hugtök og reynt við dæmið með þessi hugtök í huga.
+Markmiðið mitt er að þið fáið fleiri algorithma í toolboxið ykkar, og verðið betri forritarar fyrir vikið.
+
+Fyrsta dæmið hljóðar svona:
+
+[quote]
+Jónas stendur í norð-vestur horninu á 100x100 metra stórum fleti.
+Hann hefur eftirfarandi þrjá möguleika:
+
+1. Ganga 1 meter í austur.
+2. Ganga 1 meter í suður.
+3. Ganga *kvaðratrótin af 2* metra í suð-austur.
+
+Hann velur einn af möguleikunum, af handhófi, og gengur samkvæmt honum.
+Hann endurtekur þennan leik (velur nýjan möguleika af handhófi í hvert skipti) þar til hann er kominn í suð-austur hornið á fletinum.
+Hann má aldrei ganga út af fletinum, svo að ef hann er t.d. við austur brúnina þá verður hann að velja "1 meter í suður" valmöguleikann.
+
+Líkurnar á því að hann fari styðstu leiðina að suð-austur horninu eru 1 / N.
+Hvað er N?
+[/quote]
+
+Hugtökin sem ég ætla að láta ykkur fá fyrir þetta dæmi eru: [u]recursion[/u], [u]memoization[/u] og [u]arbitrary-precision arithmetic[/u] (bignum/biginteger).
+[i]Ef þú getur ekki notað arbitrary-precision arithmetic í forritunarmálinu þínu, þá geturðu minnkað flötinn niður í t.d. 10x10 metra.[/i]
+
+Þið megið sýna okkur ykkar dæmi með því að commenta link á pastebin.com eða aðra svipaða síðu (ekki pastea kóðann ykkar hingað, það er spoiler fyrir þá sem vilja gera dæmið sjálfir).
+
+Þetta er ekki keppni og er aðeins ætlað sem fróðleikur fyrir þá sem vilja.
+Endilega commentið eða sendið mér skilaboð ef það er eitthvað.
+
+Vona að þið hafið gaman af þessu og fræðist kannski eitthvað í leiðinni.
+Látið mig vita ef þið eruð með önnur skemmtileg dæmi.
