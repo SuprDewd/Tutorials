@@ -24,6 +24,7 @@ Við byrjum á generics, en athugið, þessi grein er ætluð C#, en hægt er a�
 
 [b]1. Generics[/b]
 
+(Ath: Generics er svipað og templates í C++)
 Byrjum á því að taka sem dæmi innbyggða klasann ArrayList.
 Hann getur geymt fylki af objectum sem stækkar eftir þörfum.
 En segjum svo að ég geri eftirfarandi:
@@ -52,8 +53,7 @@ for (int i = 0; i < talnaFylki.Length; i++)
 
 Þarna mun C# koma með runtime error (villan kæmi ekki upp fyrr en eftir að forritið er byrjað að keyra).
 Ég castaði string yfir á int, sem er ekki löglegt.
-Þetta gerist vegna þess að ArrayList er ekki type-safe.
-ArrayList er ekki type-safe af því að hann geymir hlutina sem array of objects,
+ArrayList geymir hlutina sem array of objects,
 en ekki array af T, þar sem T væri týpan af hlutunum sem ætti að geyma.
 
 Microsoft kom með lausn á þessu vandamáli með því að bæta generics við C# (.NET).
@@ -72,7 +72,6 @@ talnaFylki.Add("Strengur!"); // Hér mun koma compile error
 
 Núna mun C# koma strax með villu, og ekki leyfa okkur að keyra forritið.
 Þá sjáum við að við höfum óvart sett streng inn í fylki sem var ætlað tölum, og getum fjarlægt línuna.
-Þetta gerir List<T> type-safe.
 
 Við getum líka búið til okkar eigin generic klasa.
 Til dæmis klasi sem skrifar út hluti af týpunni T.
