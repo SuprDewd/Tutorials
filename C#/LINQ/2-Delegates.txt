@@ -19,11 +19,11 @@ void Prufa()
 
 string PrufuMethod(int breytaA, string breytaB)
 {
-	return breytaA + ". " + breytaB;
+	return breytaA + " " + breytaB;
 }
 [/code]
 
-Delegate týpan getur verið notuð eins og venjulega klasa-týpa.
+Delegate týpan getur verið notuð eins og venjuleg klasa-týpa.
 Við getum til dæmis búið til method sem taka inn delegate sem færibreytu:
 
 [code]
